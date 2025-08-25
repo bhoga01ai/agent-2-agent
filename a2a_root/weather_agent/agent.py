@@ -2,14 +2,34 @@
 from dotenv import load_dotenv
 
 load_dotenv()
+import os 
+import requests
+weatherAPIKey = str(os.getenv('weatherAPIKey'))
 
 # STEP 1 - Import libraries
 from google.adk.a2a.utils.agent_to_a2a import to_a2a
 from google.adk import Agent
 from google.adk.tools import FunctionTool
 
-def get_weather(city: str) -> str:
-    return f"It's always sunny in {city}"
+def get_temperature(city: str) -> dict:
+    """Gets the current temperature for a given city.
+
+    Args:
+        city (str): The name of the city (e.g., 'San Francisco').
+
+    Returns:
+        dict: A dictionary containing the temperature data or an error message.
+    """
+    print("Entered the method / function get_temperature");
+    weatherAPIUrl = "http://api.weatherapi.com/v1/current.json?key=" + weatherAPIKey + "&q=" + city;
+    print(weatherAPIUrl)
+    response = requests.get(weatherAPIUrl)
+    data = response.json()
+    print(data)
+    return data
+
+# def get_weather(city: str) -> str:
+#     return f"It's always sunny in {city}"
 
 # STEP 2 - Create the agent 
 root_agent = Agent(
@@ -21,7 +41,7 @@ root_agent = Agent(
     instruction=(
         "You are a helpful agent who can answer user questions about weather."
     ),
-    tools=[FunctionTool(get_weather)]
+    tools=[FunctionTool(get_temperature)]
 )
 # STEP 3 - Make your agent A2A-compatible
 # The to_a2a() function will even auto-generate an agent card in-memory behind-the-scenes by extracting skills, capabilities, and metadata from the ADK agent
