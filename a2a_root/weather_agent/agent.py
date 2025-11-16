@@ -54,7 +54,7 @@ if __name__ == "__main__":
     import uvicorn
     uvicorn.run(a2a_app, host="0.0.0.0", port=8002)
 
-# agent card url : http://localhost:8001/.well-known/agent.json
+# agent card url : http://localhost:8002/.well-known/agent.json
 # The agent card is a JSON file that contains metadata about the agent, such as its name, description, and supported capabilities.
 # The agent card is used by the A2A platform to discover and interact with the agent.
 # {"capabilities":{},"defaultInputModes":["text/plain"],"defaultOutputModes":["text/plain"],"description":"Agent to answer questions about general knowledge.","name":"hello_world_agent","preferredTransport":"JSONRPC","protocolVersion":"0.3.0","skills":[{"description":"Agent to answer questions about general knowledge. I am a helpful agent who can answer user questions about general knowledge.","id":"hello_world_agent","name":"model","tags":["llm"]}],"supportsAuthenticatedExtendedCard":false,"url":"http://localhost:8001","version":"0.0.1"}
