@@ -66,3 +66,11 @@ To run the agents, you need to start each agent in a separate terminal.
     TO run the coordinator agent, you need to start th run the command `adk web` from the root directory of the project 
     
     This will launch the coordinator agent and it will be available at `http://localhost:8000 with a2a_root as agent.  
+
+
+## Killing the running adk web
+# lsof -nP -iTCP:8000 -sTCP:LISTEN
+# kill <pid>
+```bash
+adk web stop
+```

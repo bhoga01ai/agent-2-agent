@@ -66,6 +66,5 @@ coordinator_agent = Agent(
     ],
     sub_agents=[general_knowledge_agent, weather_agent]
 )
-
 # Export the coordinator as the main agent
 root_agent = coordinator_agent

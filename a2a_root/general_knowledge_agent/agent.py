@@ -10,7 +10,7 @@ from google.adk import Agent
 # STEP 2 - Create the agent 
 root_agent = Agent(
     name="general_knowledge_agent",
-    model="gemini-2.0-flash",
+    model="gemini-2.5-flash",
     description=(
         "Agent to answer questions about general knowledge."
     ),

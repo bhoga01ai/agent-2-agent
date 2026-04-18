@@ -34,7 +34,7 @@ def get_temperature(city: str) -> dict:
 # STEP 2 - Create the agent 
 root_agent = Agent(
     name="weather_agent",
-    model="gemini-2.0-flash",
+    model="gemini-2.5-flash",
     description=(
         "Agent to answer questions about weather."
     ),
